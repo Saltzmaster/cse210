@@ -15,6 +15,9 @@ class Program
         Console.WriteLine(tsScripture.ToString());
         Console.WriteLine("Press Enter to hide some words or type 'quit' to exit.");
         string tsInput = Console.ReadLine();
+        
+        // for the strech challange I added the quit funtion to my program so you can end it early.
+        
         while (tsInput != "quit")
         {
             tsScripture.tsHideWords();
