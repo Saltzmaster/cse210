@@ -1,7 +1,32 @@
-class ActionManager
+class ActionHandler
 {
-    public void PerformAction(Character character, string action)
+    public static void PerformAction(CharacterBase character, int choice)
     {
-        // Implementation for performing actions
+        if (choice >= 0 && choice < character.Actions.Count)
+        {
+            switch (character.Actions[choice])
+            {
+                case "Rest":
+                    character.Rest();
+                    break;
+                case "Take Damage":
+                    Console.Write($"{character.Name} faces the danger head-on! Enter the amount of damage taken: ");
+                    int damageAmount = int.Parse(Console.ReadLine());
+                    character.TakeDamage(damageAmount);
+                    break;
+                case "Gain EXP":
+                    Console.Write($"{character.Name} gains experience! Enter the amount: ");
+                    int expAmount = int.Parse(Console.ReadLine());
+                    character.GainExperience(expAmount);
+                    break;
+                default:
+                    Console.WriteLine($"{character.Name} performs: {character.Actions[choice]}");
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid action!");
+        }
     }
 }
