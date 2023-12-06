@@ -19,12 +19,12 @@ class CharacterBase
         Name = name;
         Level = 1;
         Experience = 0;
-        MaxHealth = PlayerLevelCalculator.CalculateMaxHealth(Level);
+        MaxHealth = PlayerLevelCalculator.CalculateMaxHealth(Level, Constitution);
         Health = MaxHealth;
         CharacterRace = race;
         Actions = actions;
         // Adding common preset actions
-        Actions.AddRange(new[] { "Rest", "Take Damage", "Gain EXP" });
+        Actions.AddRange(new[] { "Roll Dice", "Rest", "Take Damage", "Gain EXP" });
     }
 
     public virtual void DisplayCharacterSheet()
@@ -65,7 +65,7 @@ class CharacterBase
     {
         Level++;
         Experience = 0; // Reset experience for the next level
-        MaxHealth = PlayerLevelCalculator.CalculateMaxHealth(Level);
+        MaxHealth = PlayerLevelCalculator.CalculateMaxHealth(Level, Constitution);
         Health = MaxHealth;
     }
     public void AllocateAttributePoints(Attribute attribute, int points)

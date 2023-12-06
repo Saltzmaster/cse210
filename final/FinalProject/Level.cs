@@ -1,8 +1,8 @@
 class PlayerLevelCalculator
 {
-    public static int CalculateMaxHealth(int level)
+    public static int CalculateMaxHealth(int level, int constitution)
     {
-        return 10 + (level - 1) * 5;
+        return (level * 10) + (2 * constitution);
     }
 
     public static int ExperienceRequiredForNextLevel(int currentLevel)

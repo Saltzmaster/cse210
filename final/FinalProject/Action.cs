@@ -6,6 +6,12 @@ class ActionHandler
         {
             switch (character.Actions[choice])
             {
+                case "Roll Dice":
+                    Console.Write($"{character.Name} rolls a dice! Enter the number of sides: ");
+                    int sides = int.Parse(Console.ReadLine());
+                    int result = DiceRoller.RollDice(sides);
+                    Console.WriteLine($"{character.Name} rolled a {result}!");
+                    break;
                 case "Rest":
                     character.Rest();
                     break;
