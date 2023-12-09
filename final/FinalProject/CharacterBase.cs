@@ -67,6 +67,16 @@ class CharacterBase
         Experience = 0; // Reset experience for the next level
         MaxHealth = PlayerLevelCalculator.CalculateMaxHealth(Level, Constitution);
         Health = MaxHealth;
+
+        Console.Write($"Congratulations, {Name}! You've reached level {Level}! Enter the number of additional actions you want to add: ");
+        int additionalActionsCount = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < additionalActionsCount; i++)
+        {
+            Console.Write($"Enter the name of additional action #{i + 1}: ");
+            string newAction = Console.ReadLine();
+            Actions.Add(newAction); // Ask the user for details about the new action
+        }
     }
     public void AllocateAttributePoints(Attribute attribute, int points)
     {
@@ -99,7 +109,7 @@ class CharacterBase
         Console.WriteLine($"Congratulations! You've leveled up to Level {Level}.");
 
         // Allow the player to allocate attribute points
-        Console.WriteLine("Allocate attribute points:");
+        Console.WriteLine("Allocate attribute points (will be added to current stats): ");
         Console.Write("Strength: ");
         AllocateAttributePoints(Attribute.Strength, int.Parse(Console.ReadLine()));
 

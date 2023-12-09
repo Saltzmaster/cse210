@@ -4,7 +4,7 @@ class CharacterCreator
     {
         Console.WriteLine("Let's create your character!");
 
-        Console.Write("Enter your character name: ");
+        Console.Write("Enter your character's name: ");
         string name = Console.ReadLine();
 
         Console.WriteLine("Choose a race: 1. Human, 2. Elf, 3. Dwarf, 4. Dragonborn, 5. Gnome, 6. Halfling, 7. Orc, 8. Tiefling");
@@ -18,7 +18,7 @@ class CharacterCreator
         int numActions = int.Parse(Console.ReadLine());
 
         List<string> actions = new List<string>();
-        Console.WriteLine("Enter the possible actions for your character:");
+        Console.WriteLine("Enter each possible action for your character: ");
         for (int i = 0; i < numActions; i++)
         {
             Console.Write($"Action {i + 1}: ");
