@@ -1,29 +1,29 @@
 class Barbarian : CharacterBase
 {
-    public int Stamina { get; private set; }
+    public int TsStamina { get; private set; }
 
     public Barbarian(string name, Race race, List<string> actions) : base(name, race, actions)
     {
-        Stamina = 25;
+        TsStamina = 25;
     }
 
     public override void DisplayCharacterSheet()
     {
         base.DisplayCharacterSheet();
-        Console.WriteLine($"Strength: {Strength}");
-        Console.WriteLine($"Dexterity: {Dexterity}");
-        Console.WriteLine($"Constitution: {Constitution}");
-        Console.WriteLine($"Intelligence: {Intelligence}");
-        Console.WriteLine($"Wisdom: {Wisdom}");
-        Console.WriteLine($"Charisma: {Charisma}");
-        Console.WriteLine($"Stamina: {Stamina}");
+        Console.WriteLine($"Strength: {TsStrength}");
+        Console.WriteLine($"Dexterity: {TsDexterity}");
+        Console.WriteLine($"Constitution: {TsConstitution}");
+        Console.WriteLine($"Intelligence: {TsIntelligence}");
+        Console.WriteLine($"Wisdom: {TsWisdom}");
+        Console.WriteLine($"Charisma: {TsCharisma}");
+        Console.WriteLine($"Stamina: {TsStamina}");
     }
 
     private void UseStamina(int cost)
     {
-        if (Stamina >= cost)
+        if (TsStamina >= cost)
         {
-            Stamina -= cost;
+            TsStamina -= cost;
         }
         else
         {
@@ -33,6 +33,6 @@ class Barbarian : CharacterBase
 
     private void RestoreStamina(int amount)
     {
-        Stamina = Math.Min(Stamina + amount, 100); // Assuming maximum stamina is 100
+        TsStamina = Math.Min(TsStamina + amount, 100); // Assuming maximum stamina is 100
     }
 }

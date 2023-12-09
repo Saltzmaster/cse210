@@ -1,29 +1,29 @@
 class Rogue : CharacterBase
 {
-    public int Energy { get; private set; }
+    public int TsEnergy { get; private set; }
 
     public Rogue(string name, Race race, List<string> actions) : base(name, race, actions)
     {
-        Energy = 30;
+        TsEnergy = 30;
     }
 
     public override void DisplayCharacterSheet()
     {
         base.DisplayCharacterSheet();
-        Console.WriteLine($"Strength: {Strength}");
-        Console.WriteLine($"Dexterity: {Dexterity}");
-        Console.WriteLine($"Constitution: {Constitution}");
-        Console.WriteLine($"Intelligence: {Intelligence}");
-        Console.WriteLine($"Wisdom: {Wisdom}");
-        Console.WriteLine($"Charisma: {Charisma}");
-        Console.WriteLine($"Energy: {Energy}");
+        Console.WriteLine($"Strength: {TsStrength}");
+        Console.WriteLine($"Dexterity: {TsDexterity}");
+        Console.WriteLine($"Constitution: {TsConstitution}");
+        Console.WriteLine($"Intelligence: {TsIntelligence}");
+        Console.WriteLine($"Wisdom: {TsWisdom}");
+        Console.WriteLine($"Charisma: {TsCharisma}");
+        Console.WriteLine($"Energy: {TsEnergy}");
     }
 
     private void UseEnergy(int cost)
     {
-        if (Energy >= cost)
+        if (TsEnergy >= cost)
         {
-            Energy -= cost;
+            TsEnergy -= cost;
         }
         else
         {
@@ -33,6 +33,6 @@ class Rogue : CharacterBase
 
     private void RestoreEnergy(int amount)
     {
-        Energy = Math.Min(Energy + amount, 100); // Assuming maximum energy is 100
+        TsEnergy = Math.Min(TsEnergy + amount, 100); // Assuming maximum energy is 100
     }
 }
